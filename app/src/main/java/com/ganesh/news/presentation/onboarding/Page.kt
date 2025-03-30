@@ -13,17 +13,17 @@ val pages = listOf(
 
   Page(
       title = "Stay Updated",
-      description = "Get the latest news from around the world, curated just for you.",
+      description = "Get the latest news from around the world.",
       image = R.drawable.onboarding1 // Replace with actual drawable resource
   ),
     Page(
         title = "Personalized Feeds",
-        description = "Follow your favorite topics and get news that matters to you.",
+        description = "Follow your favorite topics",
         image = R.drawable.onboarding2 // Replace with actual drawable resource
     ),
     Page(
         title = "Breaking Alerts",
-        description = "Receive instant notifications on breaking news and important updates.",
+        description = "Receive instant notifications on breaking news.",
         image = R.drawable.onboarding3 // Replace with actual drawable resource
     )
 )
