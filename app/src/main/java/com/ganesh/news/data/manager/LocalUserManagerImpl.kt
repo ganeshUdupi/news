@@ -1,6 +1,7 @@
 package com.ganesh.news.data.manager
 
 import android.content.Context
+import android.util.Log
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.preferencesDataStore
@@ -12,7 +13,6 @@ import kotlinx.coroutines.flow.map
 
 class LocalUserManagerImpl(private val context: Context) : LocalUserManager {
     override suspend fun saveAppEntry() {
-
         context.dataStore.edit { settings ->
             settings[PreferencesKeys.APP_ENTRY] = true
         }
@@ -27,7 +27,6 @@ class LocalUserManagerImpl(private val context: Context) : LocalUserManager {
     private val Context.dataStore by preferencesDataStore(name = USER_SETTINGS)
 
     private object PreferencesKeys {
-
         val APP_ENTRY = booleanPreferencesKey(name = Constants.APP_ENTRY)
     }
 }

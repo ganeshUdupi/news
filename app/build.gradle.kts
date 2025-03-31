@@ -3,9 +3,8 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.hilt)
-    alias(libs.plugins.kapt) // ✅ Add this line
+    alias(libs.plugins.kapt)
 }
-apply(plugin = "kotlin-kapt")
 
 android {
     namespace = "com.ganesh.news"

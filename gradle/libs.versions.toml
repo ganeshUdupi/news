@@ -11,7 +11,7 @@ composeBom = "2024.09.00"
 
 splashscreen = "1.0.1"
 navigation = "2.6.0"
-hilt = "2.45"
+hilt = "2.50"
 hiltNavigation = "1.0.0"
 retrofit = "2.9.0"
 coil = "2.4.0"

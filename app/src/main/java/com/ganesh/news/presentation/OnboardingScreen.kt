@@ -19,6 +19,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.ganesh.news.presentation.OnBoardingEvent
 import com.ganesh.news.presentation.common.NewsButton
 import com.ganesh.news.presentation.common.NewsTextButton
 import com.ganesh.news.presentation.onboarding.Dimensions.MediumPadding2
@@ -28,14 +29,14 @@ import kotlinx.coroutines.launch
 
 
 @Composable
-fun OnboardingScreen() {
-
+fun OnboardingScreen(
+    event: (OnBoardingEvent)-> Unit
+)
+{
     Column(modifier = Modifier.fillMaxSize()) {
-
         val pagerState = rememberPagerState(initialPage = 0) {
             pages.size
         }
-
         val buttonState = remember {
             derivedStateOf {
                 when (pagerState.currentPage) {
@@ -45,21 +46,14 @@ fun OnboardingScreen() {
                     else -> listOf("Previous", "")
 
                 }
-
             }
-
         }
-
         HorizontalPager(state = pagerState) { index ->
             OnBoardingPage(
                 page = pages[index]
             )
-
         }
-
         Spacer(modifier = Modifier.weight(1f))
-
-
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -72,10 +66,6 @@ fun OnboardingScreen() {
             PageIndicator(
                 modifier = Modifier.width(52.dp), pages.size, selectedPage = pagerState.currentPage
             )
-
-
-
-
             Row(verticalAlignment = Alignment.CenterVertically) {
 
                 val scope = rememberCoroutineScope()
@@ -87,14 +77,13 @@ fun OnboardingScreen() {
                             scope.launch { pagerState.animateScrollToPage(page = pagerState.currentPage - 1) }
                         })
                 }
-
-
                 NewsButton(text = buttonState.value[1], onClick = {
                     scope.launch {
 
-                        if (pagerState.currentPage == 3) {
+                        if (pagerState.currentPage == 2) {
+                            event(OnBoardingEvent.saveAppEntry)
 
-                            // naigate to homes creen
+                            // navigate to homes green
                         } else {
 
                             pagerState.animateScrollToPage(page = pagerState.currentPage + 1)
@@ -105,9 +94,8 @@ fun OnboardingScreen() {
                 })
 
             }
-
-
         }
+        Spacer(modifier = Modifier.weight(0.5f))
     }
 
 

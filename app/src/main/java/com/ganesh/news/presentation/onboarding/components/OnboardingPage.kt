@@ -41,7 +41,6 @@ fun OnBoardingPage(
             contentScale = ContentScale.Crop
         )
         Spacer(modifier = Modifier.height(MediumPadding1))
-
         Text(
             text = page.title,
             fontSize = 16.sp,

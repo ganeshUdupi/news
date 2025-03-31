@@ -14,10 +14,9 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun NewsButton(
-    text: String,
-    onClick: () -> Unit
+     text: String,
+     onClick: () -> Unit
 ) {
-
     Button(
         onClick = onClick,
         colors = ButtonDefaults.buttonColors(
@@ -26,7 +25,6 @@ fun NewsButton(
         ),
         shape = RoundedCornerShape(size = 6.dp)
     ) {
-
         Text(
             text = text,
             style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.SemiBold)
@@ -38,7 +36,6 @@ fun NewsButton(
 
 
 @Composable
-
 fun NewsTextButton(  text: String,
                      onClick: () -> Unit){
     TextButton(
